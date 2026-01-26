@@ -1,0 +1,10 @@
+here are the git commands that helps to work on our code and update changes.
+
+1. vi filename: this command opens text file in edit mode so that we can edit our code.
+
+2. git add filename: this command helps to put our edited file into stage. which means our file is in queue to be saved and with the next commit it is going to be saved with changes we made recently.
+
+3. git status: this command displays the status of git directory. like details of tracked and untracked files and the latest status of the directory.
+
+4. git commit -m "commit message" : with this command we can save our changes in a file. here the file will be moved from stage(queue) to saved and ready to push from local to remote repository.
+

@@ -1,0 +1,7 @@
+Introduction to git:
+
+what is git?
+git is a distributed version control system. which helps to track our files and folders or a project.
+
+what is git-hub?
+git-hub is a place where we store our repositories or containers that contains our project or website code. we can also share this code with other users with the help of git-hub 

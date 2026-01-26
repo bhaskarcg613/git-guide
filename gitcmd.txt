@@ -1,0 +1,13 @@
+Here we are going to list the most common commands that we use in git.
+
+1. yum install git -y: first we need to install git package inorder to work with git commands
+
+2. git init: we have to create a directory or folder as a git directory to execute git commands
+
+3. git clone repository-url: this command helps us to clone or copy our git-hub repository to our local so that we can work on our project in local directory without affecting the original code.
+
+4. git remote add origin repository-url: this command helps to establish connection between remote directory and local directory
+
+5. git pull origin master/any branch: this helps to get the latest code from respective branch
+
+6. git push origin branch-name: with this command we can push our updated code from local repository to remote or git-hub repository that can go live
