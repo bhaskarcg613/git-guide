@@ -1,0 +1,18 @@
+what is snapshot?
+
+snapshot is nothing but a backup of an EBS volume or device storage. which contains a copy all the data present in a EBS volume.
+
+snapshots are used to transfer EBS from one ec2 instance to another in different AZ within a single region.
+
+snapshots are also used to store data backup.
+
+snapshots can be used across multiple AZ.
+
+if we delete a snapshot then it will be in recycle bin for a certain time period. if needed we can restore from recycle bin.
+we can also configure how long can a deleted snapshot should be stored in recycle bin and the duration will be from 1 day to 1 year max.
+
+if snapshots taken were rarely used then we can move them to snapshot archive so the data will be compressed and reduce the cost to store.
+to restore data from archive may take time depending upon size of data or EBS volume.
+
+basically data will compressed and stored in archive and once we try to restore it will be coverted from archive to original format so it may take more time.
+
