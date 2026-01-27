@@ -1,0 +1,27 @@
+what is EBS?
+
+EBS (Elastic block store) is a network or physical drive or volume that is attached to ec2 instance or server.
+By default some amount of EBS volume will be attached or set-up together with ec2 instance while installing it.
+
+If needed we can add or attach extra EBS or drive volume for an ec2 instance for storage.
+
+EBS volume is scalable. we can increase or decrease the size depending upon the usage.
+
+EBS is provisioned to use in single AZ ( availability zone).
+
+we can not transfer EBS volume to another availability zone neither in same region nor in different region.
+
+single ec2 instance can have multiple EBS volumes attached to it. but an EBS volume can be attached to one ec2 instance at a time.
+
+An EBS volume can be detached from an ec2 instance and can be attched with another ec2 instance within same availability zone.
+
+In-order to attach EBS volume with an ec2 instance in different avaliability zone.
+we need to take a snapshot of the EBS volume and with the help of that we can connect to other ec2 instance in different AZ by creating a new EBS volume
+and restoring the snapshot within that EBS volume.
+
+EBS volume will be connected to the ec2 instance through wireless network.
+
+EBS volume will use delete on termination attribute which is enabled by default for root EBS volume and disabled for additional or secondary EBS volume.
+root EBS is an EBS volume attached to ec2 instance while installing and secondary EBS is additional drive that we attach as extra volume.
+it means when we terminate or delete an instance.EBS volume attached to that instance will also be deleted if the attribute is enabled
+or else only the instance will be deleted and EBS volume will remain the same and the billing will be applied only for that.
