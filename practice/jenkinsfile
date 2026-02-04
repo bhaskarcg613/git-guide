@@ -22,7 +22,7 @@ pipeline{
         
         stage('memory-usage'){
             steps{
-                powershell 'free -h'
+                bat 'echo "pipeline success" '
             }
         }
     }
