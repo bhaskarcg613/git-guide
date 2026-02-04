@@ -4,25 +4,25 @@ pipeline{
     stages{
         stage('hostname'){
             steps{
-                sh 'hostname'
+                powershell 'hostname'
             }
         }
         
         stage('syatem-date'){
             steps{
-                sh 'date'
+                powershell 'date'
             }
         }
         
         stage('cpu-details'){
             steps{
-                sh 'lscpu'
+                powershell 'lscpu'
             }
         }
         
         stage('memory-usage'){
             steps{
-                sh 'free -h'
+                powershell 'free -h'
             }
         }
     }
