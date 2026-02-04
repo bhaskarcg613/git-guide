@@ -14,15 +14,9 @@ pipeline{
             }
         }
         
-        stage('cpu-details'){
-            steps{
-                powershell 'lscpu'
-            }
-        }
-        
         stage('memory-usage'){
             steps{
-                bat 'echo "pipeline success" '
+                powershell 'echo "pipeline success"'
             }
         }
     }
