@@ -16,7 +16,7 @@ pipeline{
         
         stage('memory-usage'){
             steps{
-                powershell 'echo "pipeline success"'
+                powershell 'echo "ci pipeline success"'
             }
         }
     }
