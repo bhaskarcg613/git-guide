@@ -1,0 +1,23 @@
+pipeline{
+    agent any
+    
+    stages{
+        stage('hostname'){
+            steps{
+                powershell 'hostname'
+            }
+        }
+        
+        stage('syatem-date'){
+            steps{
+                powershell 'date'
+            }
+        }
+        
+        stage('memory-usage'){
+            steps{
+                powershell 'echo "CI pipeline success"'
+            }
+        }
+    }
+}
