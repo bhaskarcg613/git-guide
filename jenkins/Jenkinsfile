@@ -1,18 +1,16 @@
 pipeline{
-    agent{
-        label 'slave-node-1'
-    }
+    agent any
     
     stages{
         stage('hostname'){
             steps{
-                sh 'hostname'
+                powershell 'hostname'
             }
         }
         
         stage('date'){
             steps{
-                sh 'date'
+                powershell 'date'
             }
         }
     }
