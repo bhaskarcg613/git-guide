@@ -16,9 +16,9 @@ pipeline{
             }
         }
         
-        stage('memory-usage'){
+        stage('commit-message'){
             steps{
-                'echo "CI pipeline success"'
+                'echo "master-slave success"'
             }
         }
     }
