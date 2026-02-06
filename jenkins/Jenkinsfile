@@ -16,7 +16,7 @@ pipeline{
 
         stage('commit-message'){
             steps{
-                echo 'webhook triggered successfully'
+                echo 'webhook trigger success'
             }
         }
     }
