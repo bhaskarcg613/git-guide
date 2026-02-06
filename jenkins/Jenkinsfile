@@ -1,0 +1,19 @@
+pipeline{
+    agent{
+        label 'slave-node-1'
+    }
+    
+    stages{
+        stage('hostname'){
+            steps{
+                sh 'hostname'
+            }
+        }
+        
+        stage('date'){
+            steps{
+                sh 'date'
+            }
+        }
+    }
+}
