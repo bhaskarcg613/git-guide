@@ -13,5 +13,11 @@ pipeline{
                 powershell 'date'
             }
         }
+
+        stage('commit-message'){
+            steps{
+                echo 'success'
+            }
+        }
     }
 }
