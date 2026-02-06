@@ -1,0 +1,51 @@
+what is virtualization?
+virtualization is a practice or concept of allowing users to access multiple virtual machines or servers on a single physical device or server.
+with the help of hypervisors.
+
+what are hypervisors?
+these are softwares or applications that helps to manage virtual machines one our physical device.
+
+advantages of virtualization:
+  we can install multiple virtual machines or computers or servers in a single device
+  each machine has its own OS and dependencies
+  better hardware usage
+  applications can run independently without interruption.
+  
+disadvantages of virtualization:
+  due to lot of dependencies and completes OS storage. applications take more time to get started.
+  slower performance and heavy in size
+
+Example for vitualization:
+  consider apartment building as physical device
+  each flat in apartment is a virtual machine
+  each flat has its own kitchen, bedroom, hall just like each machine having its own OS, libraries and more.
+  each families live independently in thier flats just like each machines are working independently on a single physical device.
+
+what is containerization?
+    it is a practice which packages our application and its required dependencies inside a isolated box called container.
+    and this technology is bieng called as containerization.
+    
+to overcome from the drawbacks of virtualization we came up with this technology.
+
+advantages of containerization:
+    here each application will be stored inside a container along with its dependencies.
+    there will not be seperate OS for each application.
+    each application stored in a container uses host OS along with dependencies to run
+    because of sharing host OS there will be faster runtime as the containers will be lightweight.
+
+example for containerization:
+    lets consider PG building as physical device
+    there will be seperate rooms for each individuals just like each application residing inside a container
+    there will be single mess, tv room, playing area, gym for all individuals just like all applications sharing host OS
+
+what are dependencies?
+    these are additional tools or ingrediants to run an application
+    
+    example: maggie will be our application
+            ingrediants like gas, water, pan, oil and more are dependencies just like for a java application to run we should 
+            have its configuration files, JDK, runtime machine and libraries.
+
+what are libraries?
+    whenever developer writes a code there will be lot of functions or piece of code which are used to perform specific tasks.
+    instead of writing same code again to do the same task we can use these predefined piece of code to perform tasks.
+    these piece of predefined code or inbuilt functions are called as libraries
