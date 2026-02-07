@@ -13,5 +13,11 @@ pipeline{
                 sh 'date'
             }
         }
+
+         stage('disk-usage'){
+            steps{
+                sh 'df -kh'
+            }
+        }
     }
 }
