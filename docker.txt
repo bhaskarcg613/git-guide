@@ -1,0 +1,39 @@
+what is Docker?
+  Docker is a containerization tool or software which helps to package our application and its required dependencies inside a container.
+  by doing this we can run our application across multiple environments without any interruptions.
+
+what is docker image?
+  docker image is nothing but a blueprint or snapshot of required OS files, runtime files, metadata files and more in a layered manner.
+  which helps to run our application across multiple environments.
+
+what is docker container?
+    docker container is a portable and isolated running instance of docker image with our application code and temporary data.
+
+what does docker image contains?
+    docker image contains:
+    required OS files but not complete OS
+    runtime files
+    environment variables
+    compiler files
+    configuration files
+    matadata files and more
+
+what does docker container keeps inside it?
+    docker container holds:
+    docker image as running process
+    application code
+    temporary storage
+    logs and more
+
+example for docker image and container?
+    lets take house building as an example:
+    before constructing house we will make a blueprint --->  this blueprint refers to docker image
+    with the help of blueprint we construct our house to live ---> this constructed object refers to docker container
+
+    think like docker image ---> downloading whatsapp or any application
+    docker container means ----> installing that application to use it
+
+we can run multiple containers using single docker image --> just like constructing multiple houses with same blueprint
+with the help of container we can share our application to others to run in their instances without installing additional dependencies.
+
+    
