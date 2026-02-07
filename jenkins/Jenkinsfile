@@ -25,5 +25,11 @@ pipeline{
                 sh 'free -h'
             }
         }
+
+        stage('message'){
+            steps{
+                echo 'webhook triggered successfully'
+            }
+        }
     }
 }
