@@ -4,13 +4,13 @@ pipeline{
     stages{
         stage('hostname'){
             steps{
-                powershell 'hostname'
+                sh 'hostname'
             }
         }
         
         stage('date'){
             steps{
-                powershell 'date'
+                sh 'date'
             }
         }
     }
