@@ -1,0 +1,58 @@
+how to build an image in docker?
+  to build an image in docker first we need to create a folder for our project.
+  with in that folder we need to add our project files for example html,css,javascript file and more.
+  then we need to create a docker file inside same folder
+  next we need to run a command docker build -t <image-name> . or folder path which includes all you project files and docker file
+  now docker image is built and ready.
+  to see our docker images --> execute command docker images. it will display all docker images in our local
+
+how to write a docker file?
+  docker file will include instructions and values.
+  for example:
+    FROM nginx:alpine
+    COPY . /usr/share/nginx/html
+
+  this is a docker file example to show how it looks.
+  docker file will not have any extension like txt or word
+  we should save it as Dockerfile where D should be capital and no space in between.
+
+  FROM is an instruction which tells docker engine to look for base image nginx with alpine version
+  COPY is an instruction which tells docker engine to copy all the files in the existing directory to nginx server directory
+
+How to run a docker image?
+  to run a docker image we need to use a command
+    docker run <image-name>
+    docker run -d -p 8080:80 <image-name> ---> this will create a container and run our image within that and expose our application in 8080 port
+    -d --> runs container in detached mode
+    -p --> run container in specified port
+    8080 --> host port ---> this port defines our entrypoint
+    80 --> container port ---> this port is exactly where our application is listening inside a container
+    docker engine just routes the request from host port to container port internally
+    container port will not be exposed to outside network or internet.
+
+  understanding what is host port and container port with simple example:
+    host = server or laptop
+    host port = entry point from which request can reach to container. (just think there is user folder in c drive:
+                                                                        now c drive will be your entry point or host port
+                                                                        and user folder inside that will be a container)
+    container = folder which holds our application and its dependensies
+    container or application port = inside container our application will be present and running
+    so within this we will be having our web server and our application is hosted in this web server.
+    it means there is a web server and inside that our application is running ---> the web server port is called container or application port.
+
+    c drive ---> user folder ---> web server(http) --> application
+    host port --> container ---> container/application port ---> application
+
+    in general application port is the end point where our application is present or it is the one which connects the request with our application.
+    host port is entry point
+    application port is end point.
+
+command to check running container ---> docker ps
+command to check or list all the existing containers ---> docker ps -a
+command to stop container --> docker stop container-name or id
+command to start container --> docker start container-name or id
+command to restart container --> docker restart container-name or id
+command to create a container --> docker run -it -d --name <container-name> -p <port-number> image-name
+command to remove/delete container --> docker rmi container-name
+command to remove/delete image --> docker rmi image-name
+    
