@@ -1,34 +1,57 @@
 pipeline{
     agent any
     
+    tools{
+        jdk 'java-11'
+        maven 'maven'
+    }
+    
     stages{
-        stage('hostname'){
+        stage('git-checkout'){
             steps{
-                sh 'hostname'
+                git branch: 'dev' , url: 'https://github.com/bhaskarcg613/git-guide.git'
+                git branch: 'main' , url: 'https://github.com/bhaskarcg613/git-guide.git'
             }
         }
         
-        stage('date'){
+        stage('code-compile'){
             steps{
-                sh 'date'
+                sh 'mvn compile'
             }
         }
-
-         stage('disk-usage'){
+        
+        stage('code-package'){
             steps{
-                sh 'df -kh'
+                sh 'mvn clean install'
             }
         }
-
-        stage('memoru-usage'){
+        
+        stage('build and tag'){
             steps{
-                sh 'free -h'
+                sh 'docker build -t bhaskarcg613/demo-app .'
             }
         }
-
-        stage('message'){
+        
+        stage('containerisation'){
             steps{
-                echo 'webhook triggered successfully'
+                sh '''
+                docker run -it -d --name my-container -p 9000:8080 bhaskarcg613/demo-app
+                '''
+            }
+        }
+        
+        stage('login to docker hub'){
+            steps{
+                script{
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials',usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')])
+                        sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
+                }
+            }
+        }
+        
+        stage('pushing image to docker repository'){
+            steps{
+                sh 'docker push bhaskarcg613/demo-app'
             }
         }
     }
