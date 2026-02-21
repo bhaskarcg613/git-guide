@@ -1,0 +1,71 @@
+first launch ubuntu server
+security groups --> http:80 for all traffic/anywhere ip
+                    ssh:22 for my ip
+                    custom tcp:8001 for all traffic/anywhere ip
+                    custom tcp:8002 for all traffic/anywhere ip
+run following commands:
+sudo apt update  --> to update all the packages
+sudo apt install nginx -y --> to install nginx server on ubuntu 
+sudo systemctl status nginx ---> check if nginx is active and running
+
+if nginx is not active and running then:
+
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+now copy ip aggress of ec2 instance and check in browser to view default nginx webpage
+go to browser --> paste ip address --> http://10.0.21.165:80 ---> nginx webpage displays
+
+now we need to configure our application in nginx config file:
+first unlink default webpage from nginx configuration
+sudo unlink /etc/nginx/sites-enabled/default ---> this unlinks default nginx webpage
+
+now we need to create our own config file with our application details
+first we need to go to the directory called sites-available:
+
+sudo cd /etc/nginx/sites-available/
+here sudo vi my-congig ---> i am creating my config file with vi editor
+
+# App 1 running on port 8001
+server {
+    listen 8001;
+    server_name 10.0.21.165;
+
+    root /var/www/html/app_1;
+    index index.html;
+}
+
+# App 2 running on port 8002
+server {
+    listen 8002;
+    server_name 10.0.21.165;
+
+    root /var/www/html/app_2;
+    index index.html;
+}
+
+paste this in my-config file --> here i am informing nginx that i have my web-app file in root /var/www/html/app_1/ this location. 
+now it will go to the location then follows command  index index.html; --> whcich means display my index page first when ever request hit my application
+server name means my ec2 instance ip address as i have not created any domain name yet. if domain name is available we can just put that with server name.
+listen 8001 and 8002 means i have 2 applications in same ec2 instance so i have exposing my applications with 2 different ports.
+
+now we have to make our config file as default page for nginx:
+to do this we have to link our config file in sites-enabled folder
+
+sudo ln-s /etc/nginx/sites-available/my-config /etc/nginx/sites-enabled/  ----> this command moves our config file to sites-enabled directory and make our application accessible
+
+now we need to check if configuration is done correctly 
+sudo nginx -t
+we shoul recieve output as:
+syntax is ok
+test is successful
+
+now restart nginx server:
+sudo systemctl reload nginx
+now the nginx server has been reloaded with new configuration file
+
+now we can test in browser:
+http://your-public-ip:8001 ---> http://10.0.21.165:8001 ---> which displays our app_1 application
+http://your-public-ip:8002 ---> http://10.0.21.165:8002 ---> which displays our app_2 application
+
+now we have successfully hosted both of our application on single ec2 instance
