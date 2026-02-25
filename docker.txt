@@ -30,7 +30,7 @@ example for docker image and container?
     before constructing house we will make a blueprint --->  this blueprint refers to docker image
     with the help of blueprint we construct our house to live ---> this constructed object refers to docker container
 
-    think like docker image ---> downloading whatsapp or any application
+    think this like docker image ---> downloading whatsapp or any application
     docker container means ----> installing that application to use it
 
 we can run multiple containers using single docker image --> just like constructing multiple houses with same blueprint
